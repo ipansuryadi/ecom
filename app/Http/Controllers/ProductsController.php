@@ -45,12 +45,25 @@ class ProductsController extends Controller {
         return view('admin.product.show', compact('productCount', 'product', 'cart_count', 'rand_brands', 'search', 'brands','brand_query'));
     }
 
+    public function search(){
+        $query = Input::get('search');
+        $search_result = Product::where('product_name', 'LIKE', '%' . $query . '%')->paginate(30);
+        $product = $search_result;
+        $productCount = $search_result->count();
+        $cart_count = $this->countProductsInCart();
+        $rand_brands = Brand::orderByRaw('RAND()')->take(6)->get();
+        $search = Product::all();
+        $brands = Brand::all();
+        $brand_query = $search_result;
+        return view('admin.product.show', compact('productCount', 'product', 'cart_count', 'rand_brands', 'search', 'brand_query', 'brands'));
+    }
+
     /*Show all products in admin dashboard by brands*/
 
     public function brand($brand_id){
         $brand_query = $brand_id;
         $product = Product::where('brand_id',$brand_id)->paginate(30);
-        $productCount = Product::all()->count();
+        $productCount = $product->count();
         $cart_count = $this->countProductsInCart();
         $rand_brands = Brand::orderByRaw('RAND()')->take(6)->get();
         $search = Product::all();
@@ -65,7 +78,7 @@ class ProductsController extends Controller {
         } else {
             $product = Product::latest()->paginate(30);
         }
-        $productCount = Product::all()->count();
+        $productCount = $product->count();
         $cart_count = $this->countProductsInCart();
         $rand_brands = Brand::orderByRaw('RAND()')->take(6)->get();
         $search = Product::all();
@@ -80,7 +93,7 @@ class ProductsController extends Controller {
         } else {
             $product = Product::oldest()->paginate(30);
         }
-        $productCount = Product::all()->count();
+        $productCount = $product->count();
         $cart_count = $this->countProductsInCart();
         $rand_brands = Brand::orderByRaw('RAND()')->take(6)->get();
         $search = Product::all();
@@ -94,7 +107,7 @@ class ProductsController extends Controller {
         } else {
             $product = Product::orderBy('reduced_price','desc')->paginate(30);
         }
-        $productCount = Product::all()->count();
+        $productCount = $product->count();
         $cart_count = $this->countProductsInCart();
         $rand_brands = Brand::orderByRaw('RAND()')->take(6)->get();
         $search = Product::all();
@@ -108,7 +121,7 @@ class ProductsController extends Controller {
         } else {
             $product = Product::orderBy('reduced_price','asc')->paginate(30);
         }
-        $productCount = Product::all()->count();
+        $productCount = $product->count();
         $cart_count = $this->countProductsInCart();
         $rand_brands = Brand::orderByRaw('RAND()')->take(6)->get();
         $search = Product::all();
@@ -122,7 +135,7 @@ class ProductsController extends Controller {
         } else {
             $product = Product::orderBy('product_name','asc')->paginate(30);
         }
-        $productCount = Product::all()->count();
+        $productCount = $product->count();
         $cart_count = $this->countProductsInCart();
         $rand_brands = Brand::orderByRaw('RAND()')->take(6)->get();
         $search = Product::all();
@@ -136,7 +149,7 @@ class ProductsController extends Controller {
         } else {
             $product = Product::orderBy('product_name','desc')->paginate(30);
         }
-        $productCount = Product::all()->count();
+        $productCount = $product->count();
         $cart_count = $this->countProductsInCart();
         $rand_brands = Brand::orderByRaw('RAND()')->take(6)->get();
         $search = Product::all();
@@ -408,14 +421,4 @@ $rand_brands = Brand::orderByRaw('RAND()')->take(6)->get();
         return view('pages.show_product', compact('product', 'search', 'brands', 'categories', 'similar_product', 'cart_count', 'rand_brands'));
     }
 
-    public function search(){
-        $query = Input::get('search');
-        $search_result = Product::where('product_name', 'LIKE', '%' . $query . '%')->paginate(30);
-        $product = Product::latest('created_at')->paginate(30);
-        $productCount = Product::all()->count();
-        $cart_count = $this->countProductsInCart();
-        $rand_brands = Brand::orderByRaw('RAND()')->take(6)->get();
-        $search = Product::all();
-        return view('admin.product.show', compact('productCount', 'product', 'cart_count', 'rand_brands', 'search'));
-    }
 }

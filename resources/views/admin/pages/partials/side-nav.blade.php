@@ -35,5 +35,8 @@
             <li>
                 <a href="{{ url('admin/config') }}">Configuration</a>
             </li>
+            <li>
+                <a href="{{ route('admin.static.index') }}">Static Page</a>
+            </li>
         </ul>
     </div>

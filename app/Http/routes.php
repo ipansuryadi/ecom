@@ -592,6 +592,16 @@ Route::group(["middleware" => 'admin'], function(){
         'middleware'=> ['auth'],
         'as'=> 'admin.config.store'
         ]);
+    Route::resource('admin/static', 'StaticPageController');
+    /*
+POST    admin/static                 | admin.static.store     | App\Http\Controllers\StaticPageController@store
+GET     admin/static                 | admin.static.index     | App\Http\Controllers\StaticPageController@index
+GET     admin/static/create          | admin.static.create    | App\Http\Controllers\StaticPageController@create
+PUT     admin/static/{static}        | admin.static.update    | App\Http\Controllers\StaticPageController@update
+GET     admin/static/{static}        | admin.static.show      | App\Http\Controllers\StaticPageController@show
+DELETE  admin/static/{static}        | admin.static.destroy   | App\Http\Controllers\StaticPageController@destroy
+GET     admin/static/{static}/edit   | admin.static.edit      | App\Http\Controllers\StaticPageController@edit 
+*/
 });
 
 Route::group(['middleware' => ['super']], function(){

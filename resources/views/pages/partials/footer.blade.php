@@ -1,6 +1,6 @@
 <footer class="page-footer elegant-color-dark" if="footer" id="contact">
 	<div class="footer-copyright">
-		<div class="container-fluid">
+		<div class="container">
 			<div class="col-xs-12 col-sm-12 col-md-3 col-lg-3">
 				<!--Panel-->
 				<div class="elegant-color-dark grey-text lighten-5">

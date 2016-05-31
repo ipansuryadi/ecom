@@ -1,0 +1,83 @@
+.order-admin-link{
+	padding-left: 20px;
+	padding-right:20px;
+}
+.order-admin-link:hover{
+	background-color: blue;
+}
+#sidebar-wrapper {
+	background-color: rgba(255, 255, 255, 0.84);
+}
+#delete-address-btn, #delete-slideshow-btn, {
+	background-color: transparent;
+	border: 0;
+}
+#about-us{
+	min-height: 380px;
+}
+#nav-bar-id {
+	/*background-color: rgba(255, 255, 255, 1);*/
+	background-color:#3F3F3F;
+	z-index: 1000;
+}
+.top-nav-collapse .navbar-nav > li > a {
+     font-size: 16px; 
+}
+#nav-bar-logo{
+	color: #fffe00;
+}
+#nav-bar-Login {
+	color: #fff;
+	font-weight: 600;
+}
+#Search-Btn {
+	background-color: #eee;
+	color: #3F3F3F;
+}
+.carousel-inner{
+  max-height: 384px !important;
+}
+#featured-products-heading {
+	padding-bottom: 0;
+}
+#typeahead-query {
+	width: 100%;
+}
+#typeahead-container {
+	padding-bottom: 0;
+}
+.sidebar-nav li a {
+	color: #6E6E6E;
+}
+.yellow-line{
+  border-bottom: solid 3px yellow; 
+}
+.title-yellow{
+  margin-top: solid 1px yellow;
+  background-color: yellow;
+  width: 300px;
+  height: 100%;
+  text-align: center;
+  padding: 5px;
+}
+.product-heading{
+	font-family: Roboto, sans-serif;
+	font-weight: 300;
+	font-size: 1.7em;
+}
+@media screen and (min-width: 720px) {
+    #sidebar-wrapper-two{
+		min-height: 450px;
+	}
+}
+/*.dropdown {
+    position: relative;
+    left: 20px;
+}*/
+.li-brand{
+	height: 250px;
+	overflow: auto;
+}
+.navbar .navbar-brand {
+    margin-top: -8px;
+}

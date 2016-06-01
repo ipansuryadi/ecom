@@ -5,7 +5,7 @@
 				<!--Panel-->
 				<div class="elegant-color-dark grey-text lighten-5">
 					<h6 class="white-text medium-500">PT Sinergi Inovasi Profesional</h6>
-					<p>
+					<p style="margin-left:15px;">
 						<a href="{{ url('/about') }}" class="grey-text lighten-5">{{config('label')->about_us}}</a><br>
 						<a href="#" class="grey-text lighten-5"></a>
 					</p>
@@ -16,7 +16,7 @@
 				<!--Panel-->
 				<div class="elegant-color-dark">
 					<h6 class="white-text medium-500">LAYANAN PELANGGAN</h6>
-					<p>
+					<p style="margin-left:15px;">
 						<a href="#" class="grey-text lighten-5">Panduan Belanja</a><br>
 						<a href="#" class="grey-text lighten-5">Pengembalian Produk</a>
 					</p>
@@ -27,7 +27,7 @@
 				<!--Panel-->
 				<div class="elegant-color-dark">
 					<h6 class="white-text medium-500">INFO MENARIK</h6>
-					<p>
+					<p style="margin-left:15px;">
 						<a href="#" class="grey-text lighten-5">link</a><br>
 						<a href="#" class="grey-text lighten-5"link</a>
 					</p>
@@ -38,7 +38,7 @@
 				<!--Panel-->
 				<div class="elegant-color-dark">
 					<h6 class="white-text medium-500">HUBUNGI KAMI</h6>
-					<p>
+					<p style="margin-left:15px;">
 						
 					</p>
 				</div>

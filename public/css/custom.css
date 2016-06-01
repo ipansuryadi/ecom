@@ -81,3 +81,15 @@
 .navbar .navbar-brand {
     margin-top: -8px;
 }
+footer.page-footer .footer-copyright {
+	height: auto;
+}
+footer.page-footer .footer-copyright {
+	margin-bottom: 0;
+}
+.elegant-color{
+	background-color: #2E2E2E!important;
+}
+footer.page-footer {
+	padding-bottom: 0;
+}

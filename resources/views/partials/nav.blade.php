@@ -28,14 +28,13 @@
                         <li class="dropdown">
                             <a href="#" class="dropdown-toggle btn btn-sm btn-secondary waves-effect waves-light" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
                                 {{ $user->username }} <span class="caret"></span></a>
-                                <ul class="dropdown-menu bounceInDown animated" id="dropdwon">
+                                <ul class="dropdown-menu" id="dropdwon">
                                     @if ($user->admin=="1")
                                     {{-- expr --}}
                                     <li><a href="{{ url('admin/dashboard') }}">Admin Dashboard</a></li>
                                     @endif
                                     <li><a href="{{ url('/order') }}">{{config('label')->order}}</a></li>
                                     <li><a href="{{ url('/profile') }}">{{config('label')->profile}}</a></li>
-                                    <li><a href="{{ url('/about') }}">{{config('label')->about_us}}</a></li>
                                     <li><a href="{{ url('/logout') }}">{{config('label')->logout}}</a></li>
                                 </ul>
                             </li>

@@ -6,7 +6,7 @@
 				<div class="elegant-color-dark grey-text lighten-5">
 					<h6 class="white-text medium-500">PT Sinergi Inovasi Profesional</h6>
 					<p style="margin-left:15px;">
-						<a href="{{ url('/about') }}" class="grey-text lighten-5">{{config('label')->about_us}}</a><br>
+						<a href="{{ route('page.show', 'about-us') }}" class="grey-text lighten-5">{{config('label')->about_us}}</a><br>
 						<a href="#" class="grey-text lighten-5"></a>
 					</p>
 				</div>

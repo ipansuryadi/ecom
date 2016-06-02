@@ -10,7 +10,7 @@
 			
 			<!-- Button to toggle side-nav -->
 			<a href="#menu-toggle" class="btn btn-default visible-xs" id="menu-toggle"><i class="fa fa-bars fa-5x"></i></a>
-			@include('pages.partials.about')
+			@include('pages.partials.staticpage')
 		</div>
 		</div>  <!-- close wrapper -->
 		@include('pages.partials.footer')

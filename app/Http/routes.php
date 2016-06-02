@@ -19,7 +19,10 @@ Route::group(['middleware' => ['web','httpssecure']], function () {
     Route::get('/', 'PagesController@index');
 
 /** Get the Home Page **/
-    Route::get('about', 'PagesController@about');
+    Route::get('page/{page}', [
+        'uses'=>'\App\Http\Controllers\PagesController@staticpage',
+        'as'=>'page.show'
+        ]);
 
     /** Display Products by category Route **/
     Route::get('category/{id}','PagesController@displayProducts');
@@ -567,13 +570,7 @@ Route::group(["middleware" => 'admin'], function(){
 
     //shipping
     Route::resource('admin/shipping', 'ShippingController');
-// GET|HEAD  | admin/shipping                 | admin.shipping.index   | App\Http\Controllers\ShippingController@index    
-// POST      | admin/shipping                 | admin.shipping.store   | App\Http\Controllers\ShippingController@store    
-// GET|HEAD  | admin/shipping/create          | admin.shipping.create  | App\Http\Controllers\ShippingController@create   
-// DELETE    | admin/shipping/{shipping}      | admin.shipping.destroy | App\Http\Controllers\ShippingController@destroy  
-// PUT|PATCH | admin/shipping/{shipping}      | admin.shipping.update  | App\Http\Controllers\ShippingController@update   
-// GET|HEAD  | admin/shipping/{shipping}      | admin.shipping.show    | App\Http\Controllers\ShippingController@show     
-// GET|HEAD  | admin/shipping/{shipping}/edit | admin.shipping.edit    | App\Http\Controllers\ShippingController@edit  
+
     Route::post('admin/shipping/search', [
         'uses' => '\App\Http\Controllers\ShippingController@search',
         'as' => 'admin.shipping.search',
@@ -594,14 +591,19 @@ Route::group(["middleware" => 'admin'], function(){
         ]);
     Route::resource('admin/static', 'StaticPageController');
     /*
-POST    admin/static                 | admin.static.store     | App\Http\Controllers\StaticPageController@store
-GET     admin/static                 | admin.static.index     | App\Http\Controllers\StaticPageController@index
-GET     admin/static/create          | admin.static.create    | App\Http\Controllers\StaticPageController@create
+GET     admin/static                 |                        | App\Http\Controllers\StaticPageController@index
+GET     admin/static/create          |                        | App\Http\Controllers\StaticPageController@create
+POST    admin/static                 |                        | App\Http\Controllers\StaticPageController@store
+GET     admin/static/{static}/edit   | admin.static.edit      | App\Http\Controllers\StaticPageController@edit 
 PUT     admin/static/{static}        | admin.static.update    | App\Http\Controllers\StaticPageController@update
 GET     admin/static/{static}        | admin.static.show      | App\Http\Controllers\StaticPageController@show
-DELETE  admin/static/{static}        | admin.static.destroy   | App\Http\Controllers\StaticPageController@destroy
-GET     admin/static/{static}/edit   | admin.static.edit      | App\Http\Controllers\StaticPageController@edit 
+DELETE  admin/static/{static}        |                        | App\Http\Controllers\StaticPageController@destroy
 */
+    Route::post('admin/static/upload', [
+        'uses'=> '\App\Http\Controllers\StaticPageController@upload',
+        'middleware'=> ['auth'],
+        'as'=> 'admin.static.upload'
+        ]);
 });
 
 Route::group(['middleware' => ['super']], function(){

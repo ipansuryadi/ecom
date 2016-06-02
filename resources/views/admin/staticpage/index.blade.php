@@ -13,9 +13,10 @@
 				</tr>
 			</thead>
 			<tbody>
+			@foreach ($pages as $page)
 				<tr>
 					<td class="text-center">
-						<form method="post" action="{{ route('admin.static.destroy', 1) }}" class="delete_form_page">
+						<form method="post" action="{{ route('admin.static.destroy', $page['filename']) }}" class="delete_form_page">
 							{{ csrf_field() }}
 							<input type="hidden" name="_method" value="DELETE">
 							<button id="delete-page-btn" style="border: none;">
@@ -23,12 +24,13 @@
 							</button>
 						</form>
 					</td><td class="text-center">
-						<a href="{{ route('admin.static.edit', 1) }}">
+						<a href="{{ route('admin.static.edit', $page['filename']) }}">
 							<i class="fa fa-pencil green-text" aria-hidden="true"></i>
 						</a>
 					</td>
-					<td></td>
+					<td>{{$page['filename']}}</td>
 				</tr>
+			@endforeach
 			</tbody>
 		</table>
 	</div>

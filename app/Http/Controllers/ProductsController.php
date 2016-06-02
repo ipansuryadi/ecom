@@ -46,7 +46,7 @@ class ProductsController extends Controller {
     }
 
     public function search(){
-        $query = Input::get('search');
+        $query = htmlspecialchars_decode(Input::get('search'));
         $search_result = Product::where('product_name', 'LIKE', '%' . $query . '%')->paginate(30);
         $product = $search_result;
         $productCount = $search_result->count();

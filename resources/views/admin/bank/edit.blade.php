@@ -35,7 +35,7 @@
 				</div>
 			</div>
 			<div class="form-group col-sm-8 col-md-8 col-md-offset-2 text-right">
-				<button type="submit" class="btn btn-primary waves-effect waves-light">Create Brand</button>
+				<button type="submit" class="btn btn-primary waves-effect waves-light">Create</button>
 			</div>
 		</form>
 	</div>

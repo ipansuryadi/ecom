@@ -10,7 +10,7 @@
 					<th class="text-center blue white-text col-md-1">Edit</th>
 					<th class="text-center blue white-text">Images</th>
 					<th class="text-center blue white-text">Link</th>
-					<th class="text-center blue white-text">Order</th>
+					<th class="text-center blue white-text">Sort</th>
 					<th class="text-center blue white-text">Title</th>
 					<th class="text-center blue white-text">Short Desc</th>
 					

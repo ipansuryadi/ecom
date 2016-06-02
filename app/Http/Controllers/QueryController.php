@@ -38,7 +38,7 @@ class QueryController extends Controller {
         $cart_count = $this->countProductsInCart();
 
         // Gets the query string from our form submission
-        $query = Input::get('search');
+        $query = htmlspecialchars_decode(Input::get('search'));
 
         // Returns an array of products that have the query string located somewhere within
         // our products product name. Paginate them so we can break up lots of search results.

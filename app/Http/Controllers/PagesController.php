@@ -9,7 +9,7 @@ use App\Category;
 use App\Slideshow;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Input;
-
+use Illuminate\Support\Facades\File;
 use App\Http\Traits\BrandAllTrait;
 use App\Http\Traits\CategoryTrait;
 use App\Http\Traits\SearchTrait;
@@ -56,7 +56,7 @@ class PagesController extends Controller {
 
         $mostview = Product::orderBy('hits', 'desc')->where('featured', '=', 0)->take(4)->get();
 
-        $slideshow = Slideshow::all();
+        $slideshow = Slideshow::orderBy('order')->get();
 
         return view('pages.index', compact('products', 'brands', 'search', 'new', 'cart_count', 'rand_brands', 'mostview', 'slideshow'))->with('categories', $categories);
     }
@@ -148,13 +148,15 @@ class PagesController extends Controller {
         return view('brand.show', compact('products', 'brands', 'brand', 'category', 'search', 'cart_count','rand_brands'))->with('count', $count);
     }
 
-    public function about(){
+    public function staticpage($page){
         $brands = $this->brandsAll();
         $categories = $this->categoryAll();
         $cart_count = $this->countProductsInCart();
         $search = $this->search();
         $rand_brands = Brand::orderByRaw('RAND()')->take(6)->get();
-        return view('pages.about',compact('brands', 'categories', 'cart_count','rand_brands', 'search'));
+        $file = File::get('src/public/staticpage/page/'.$page);
+        $pages = json_decode($file);
+        return view('pages.staticpage',compact('brands', 'categories', 'cart_count','rand_brands', 'search', 'pages'));
     }
 
     public function super(){
